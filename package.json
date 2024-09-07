@@ -1,0 +1,48 @@
+{
+  "name": "@savaryna/tailwindcss-material-symbols",
+  "version": "2.1.0",
+  "license": "MIT",
+  "author": "Alex Tofan",
+  "description": "🌀 A simple tailwindcss plugin to ease work with Google's Material Symbols font.",
+  "homepage": "https://github.com/savaryna/tailwindcss-material-symbols#readme",
+  "bugs": {
+    "url": "https://github.com/savaryna/tailwindcss-material-symbols/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savaryna/tailwindcss-material-symbols.git"
+  },
+  "keywords": [
+    "tailwindcss",
+    "plugin",
+    "tailwindcss plugin",
+    "material symbols",
+    "material icons"
+  ],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "format": "prettier --write src/ *.json *.ts *.md",
+    "check:types": "tsc",
+    "check:format": "prettier --check src/ *.json *.ts *.md",
+    "check:exports": "attw --pack .",
+    "test": "pnpm publish  --access public --no-git-checks --dry-run"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.4",
+    "@types/node": "^22.5.4",
+    "prettier": "3.3.3",
+    "tailwindcss": "^3.4.10",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.4.10"
+  }
+}
