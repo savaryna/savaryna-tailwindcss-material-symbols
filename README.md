@@ -2,6 +2,10 @@
 
 🌀 A simple tailwindcss plugin to ease work with Google's [Material Symbols](https://fonts.google.com/icons) icons.
 
+## Live demo
+
+See [live demo](https://savaryna.github.io/tailwindcss-material-symbols/index.html) on how the plugin works.
+
 ## Installation
 
 Install the plugin using `npm`
@@ -10,13 +14,13 @@ Install the plugin using `npm`
 npm i -D @savaryna/tailwindcss-material-symbols
 ```
 
-or `pnpm`
+or `pnpm`, etc.
 
 ```shell
 pnpm add -D @savaryna/tailwindcss-material-symbols
 ```
 
-Add the plugin to your `tailwind.config.js` file
+Add the plugin to your `tailwind.config.js` file.
 
 ```js
 /** @type {import('tailwindcss').Config} */
@@ -31,6 +35,17 @@ module.exports = {
 };
 ```
 
+Follow Google's [guide](https://developers.google.com/fonts/docs/material_symbols#using_material_symbols) on how to add Material Symbols to your page. For example you could just add a `link` tag to your pages `head`.
+
+```html
+<head>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
+</head>
+```
+
 ## Basic usage
 
 Now you can use the base class `icon` to style elements as Material Symbols.
@@ -39,10 +54,10 @@ Now you can use the base class `icon` to style elements as Material Symbols.
 > The base class can be changed by passing a `baseClass` option to the plugin. In that case use your custom base class instead of `icon`. See [changing the default base class](#changing-the-default-base-class) for more information.
 
 ```html
-<span class="icon">favorite</span>
+<span class="icon">star</span>
 ```
 
-### Choosing a style
+### Choosing the font
 
 The plugin includes a modifier class for each Material Symbols font family, so you can easily choose what symbol style to use.
 
@@ -50,7 +65,7 @@ The plugin includes a modifier class for each Material Symbols font family, so y
 > All modifier classes need to be used together with the base class. Always include the base class when using a modifier class.
 
 ```html
-<span class="icon icon-rounded">favorite</span>
+<span class="icon icon-rounded">star</span>
 <!-- `icon` is the base class, and          -->
 <!-- `icon-rounded` is the modifier class   -->
 ```
@@ -65,12 +80,12 @@ Classes you can use with the default config:
 | `icon-rounded`              | 'Material Symbols Rounded'  |
 | `icon-sharp`                | 'Material Symbols Sharp'    |
 
-### Choosing a weight
+### Choosing the weight
 
 Weight modifiers allow you to adjust the weight of the symbols stroke. Read more [here](https://developers.google.com/fonts/docs/material_symbols#wght_axis).
 
 ```html
-<span class="icon icon-700">favorite</span>
+<span class="icon icon-700">star</span>
 ```
 
 Classes you can use with the default config:
@@ -88,10 +103,10 @@ Classes you can use with the default config:
 These can be animated using transitions.
 
 ```html
-<span class="icon hover:icon-700 transition-all">favorite</span>
+<span class="icon transition-all hover:icon-700">star</span>
 ```
 
-### Choosing a fill
+### Choosing the fill
 
 Fill modifiers allow you to choose if your symbol is filled or not. Read more [here](https://developers.google.com/fonts/docs/material_symbols#fill_axis).
 
@@ -107,11 +122,11 @@ These can be animated using transitions.
 ```html
 <label>
   <input type="checkbox" class="peer hidden" />
-  <span class="icon peer:checked:icon-filled transition-all">favorite</span>
+  <span class="peer:checked:icon-filled icon transition-all">star</span>
 </label>
 ```
 
-### Choosing a grade
+### Choosing the grade
 
 Grade modifiers allow you to choose the weight of the symbols in a more granular way. A lower value is recommended to be used on darker backgrounds. Read more [here](https://developers.google.com/fonts/docs/material_symbols#grad_axis).
 
@@ -125,7 +140,7 @@ Classes you can use with the default config:
 
 These can be animated using transitions.
 
-### Choosing an optical size
+### Choosing the optical size
 
 Optical size modifiers allow you to choose the size of the symbols. In addition to changing the symbol size this also changes the stroke weight as the symbol scales. Read more [here](https://developers.google.com/fonts/docs/material_symbols#opsz_axis).
 
@@ -139,6 +154,30 @@ Classes you can use with the default config:
 | `icon-48`             | 48                |
 
 These can be animated using transitions.
+
+### With pseudo elements
+
+You can use the plugin with Tailwind CSS [pseudo elements](https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-elements) to add icons using css content.
+
+```html
+<label
+  className="after:icon after:content-['arrow\_drop\_down'] after:absolute after:right-2 ..."
+>
+  <select className="...">
+    ...
+  </select>
+</label>
+```
+
+## Animating font properties
+
+You can use Tailwind CSS classes to animate the font properties. You can animate the weight, fill, grade, optical size and other element features. Read more about using [transitions](https://tailwindcss.com/docs/transition-property) and [animations](https://tailwindcss.com/docs/animation) in the tailwindcss documentation. You can also find more information on Google's [developer guide](https://developers.google.com/fonts/docs/material_symbols) for Material Symbols.
+
+| Here are a few examples:                        |
+| ----------------------------------------------- |
+| `transition-all icon group-hover:icon-700`      |
+| `transition-all icon group-hover:icon-filled`   |
+| `transition-all icon group-hover:icon-emphasis` |
 
 ## Customizing the plugin
 
@@ -164,7 +203,7 @@ module.exports = {
 Now you can use your custom `symbol` base class where you'd use the default base class:
 
 ```html
-<span class="symbol symbol-rounded">favorite</span>
+<span class="symbol symbol-rounded">star</span>
 ```
 
 ### Changing the default styles and classes

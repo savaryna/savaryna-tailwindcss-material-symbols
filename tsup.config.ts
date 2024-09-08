@@ -1,7 +1,12 @@
 import { defineConfig } from 'tsup';
-import { readFileSync } from 'fs';
+import { readFile } from 'fs/promises';
 
 export default defineConfig(({ watch }) => [
+  {
+    entry: ['src/index.tsx'],
+    outDir: 'public',
+    platform: 'browser',
+  },
   {
     entry: ['src/index.ts'],
     format: 'esm',
@@ -22,8 +27,8 @@ export default defineConfig(({ watch }) => [
         // where you would need to use require('pkg').default
         name: 'fix-cjs-default-export',
         setup(build) {
-          build.onLoad({ filter: /src\/index\.ts$/ }, ({ path }) => {
-            const contents = readFileSync(path, 'utf8');
+          build.onLoad({ filter: /src\/index\.ts$/ }, async ({ path }) => {
+            const contents = await readFile(path, 'utf8');
 
             return {
               contents: contents.replace(/export\s+default\s+/, 'export = '),

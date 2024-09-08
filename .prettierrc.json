@@ -8,8 +8,10 @@
   "trailingComma": "all",
   "proseWrap": "preserve",
   "insertPragma": false,
-  "printWidth": 120,
+  "printWidth": 80,
   "requirePragma": false,
   "tabWidth": 2,
-  "useTabs": false
+  "useTabs": false,
+  "jsxSingleQuote": false,
+  "plugins": ["prettier-plugin-tailwindcss"]
 }

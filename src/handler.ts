@@ -6,7 +6,9 @@ export type Options = {
 };
 
 const filterDefaultKey = <T extends Record<string, any>>(obj: T) =>
-  Object.fromEntries(Object.entries(obj).filter(([key]) => key !== 'DEFAULT')) as Omit<T, 'DEFAULT'>;
+  Object.fromEntries(
+    Object.entries(obj).filter(([key]) => key !== 'DEFAULT'),
+  ) as Omit<T, 'DEFAULT'>;
 
 export default ({ baseClass = 'icon' }: Options = {}): PluginCreator =>
   ({ theme, e, addComponents, matchUtilities }) => {
