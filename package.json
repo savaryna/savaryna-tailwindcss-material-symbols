@@ -29,7 +29,7 @@
     "dev": "conc pnpm:dev:*",
     "dev:ts": "tsup --watch",
     "dev:css": "tailwindcss -o public/index.css --watch",
-    "build": "conc pnpm:build:*",
+    "build": "pnpm build:ts && pnpm build:css",
     "build:ts": "tsup",
     "build:css": "tailwindcss -o public/index.css",
     "check": "conc pnpm:check:*",
