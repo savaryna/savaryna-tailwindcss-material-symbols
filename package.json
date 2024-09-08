@@ -1,6 +1,6 @@
 {
   "name": "@savaryna/tailwindcss-material-symbols",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "author": "Alex Tofan",
   "description": "🌀 A simple tailwindcss plugin to ease work with Google's Material Symbols font.",
